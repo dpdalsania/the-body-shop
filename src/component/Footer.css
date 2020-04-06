@@ -1,0 +1,40 @@
+.social-link {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30%;
+  margin-top:10px;
+}
+h2 {
+  margin-top: 10px;
+  margin-right: 20px;
+  color: #005699;
+  /* font-size: 50px; */
+  /* font-family: Playfair Display, serif; */
+  color: #737373;
+  font-weight: 300;
+}
+.mainSocialLink {
+  /* margin-top: 10px; */
+  padding: 0px 20px;
+}
+
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+a.social:hover {
+  transform: translateY(-2px);
+}
+.facebook {
+  color: blue;
+}
+.instagram {
+  color: #36648b;
+}
+.pinterest {
+  color: #ce2229;
+}
+.youtube {
+  color: #eb3223;
+}

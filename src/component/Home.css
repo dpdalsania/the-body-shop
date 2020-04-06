@@ -1,0 +1,47 @@
+#menu-links a {
+  padding-right: 0.5em;
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 30px;
+  
+}
+.Container {
+  background: url("../Image/BackgroundImage.jpg") no-repeat;
+  width: 1450px;
+  height: 600px;
+  background-size: cover;
+}
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  padding-left: 10%;
+  padding-top: 10%;
+  
+}
+.firstLinkContainer {
+  text-decoration: underline;
+  color: #737373;
+  font-family: "Arvo", serif;
+  margin: 30px;
+  font-size: 40px;
+  font-weight: 100;
+  
+}
+.secondLinkContainer {
+  text-decoration: underline;
+  color: #737373;
+  font-family: "Arvo", serif;
+  margin: 30px;
+  font-size: 40px;
+  font-weight: 100;
+}
+.thirdLinkContainer {
+  text-decoration: underline;
+  color: #737373;
+  font-family: "Arvo", serif;
+  margin: 30px;
+  font-size: 40px;
+  font-weight: 100;
+}

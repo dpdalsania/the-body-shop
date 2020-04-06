@@ -1,0 +1,125 @@
+.images {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
+  clear: both;
+}
+
+.images,
+img {
+  display: block;
+  max-height: 400px;
+  /* max-width: 80%;  */
+  object-fit: contain;
+  object-position: 50% 100%;
+  margin-right: 0px;
+  cursor: pointer;
+}
+.imageText {
+  margin-top: 10px;
+  color: #737373;
+  font-size: 15px;
+  font-weight: 400;
+  vertical-align: top;
+  line-height: 1.2;
+}
+.imageTextPrice {
+  margin-top: 10px;
+
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 17px;
+  line-height: 1.0625rem;
+  margin-bottom: 2px;
+  color: #666;
+}
+.imagesMainSecond {
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.individualImage {
+  margin: 30px;
+  flex-direction: column;
+  color: #333;
+  position: relative;
+  text-align: center;
+  display: table-cell;
+  vertical-align: top;
+  line-height: 1.2;
+}
+.individualImage:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mainBox {
+  text-align: center;
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 50px;
+  text-align: center;
+  display: table-cell;
+}
+
+.linkMain {
+  width: 97%;
+  max-width: 97%;
+}
+.linkMain,
+a {
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  line-height: 1.25rem;
+  padding: 10px 28px 8px;
+  display: inline-block;
+  letter-spacing: 0.25px;
+  vertical-align: bottom;
+  transition: border 0.3s ease-out;
+  justify-content: space-between;
+  color: #737373;
+}
+.linkMainFirst {
+  border-bottom: 3px solid #f2f2f2;
+  color: red;
+  left: auto;
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+  justify-content: space-between;
+}
+.pageTitle {
+  margin: 20px 0 21px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.pageTitleBodyCream {
+  font-family: Trade Gothic W01 Light, Arial, sans-serif;
+  line-height: 1.3125rem;
+  color: #333;
+  margin: 1.25rem 0;
+  font-weight: 300;
+  font-size: 30px;
+}
+.pageTitleBodyCreamNumber {
+  float: right;
+  font-family: Trade Gothic W01 Light, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: -2.5%;
+}
+.primary-content h1 {
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.625em;
+  margin-bottom: 1.5625em;
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
