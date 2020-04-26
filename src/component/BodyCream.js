@@ -6,11 +6,14 @@ import Modal from "react-awesome-modal";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import CloseIcon from "@material-ui/icons/Close";
+import { add_item } from "../actions/shopping.actions";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import PageHeader from "./PageHeader";
 
-const useStyles = theme => ({
+const useStyles = (theme) => ({
   root: {
     marginLeft: 250,
-    marginRight: 10
+    marginRight: 10,
   },
   button: {
     color: "white",
@@ -25,17 +28,17 @@ const useStyles = theme => ({
     borderRadius: "0",
     "&:hover": {
       color: "#333",
-      backgroundColor: "white"
-    }
+      backgroundColor: "white",
+    },
   },
   Box: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   mainImageText: {
     display: "flex",
     flexDirection: "column",
-    paddingTop: "70px"
+    paddingTop: "70px",
   },
 
   mainBoxImage: {
@@ -47,7 +50,7 @@ const useStyles = theme => ({
     textAlign: "center",
     display: "table-cell",
     verticalAlign: "top",
-    lineHeight: "1.2"
+    lineHeight: "1.2",
   },
   mainImageTextBox: {
     margin: "0 0 2px",
@@ -58,13 +61,13 @@ const useStyles = theme => ({
     lineHeight: "28px",
     fontWeight: "100",
     position: "relative",
-    letterSpacing: "0.25px"
+    letterSpacing: "0.25px",
   },
   mainImageTextPriceBox: {
     color: "#666666",
     fontWeight: "400",
     fontSize: "18px",
-    paddingBottom:"10px",
+    paddingBottom: "10px",
     borderBottom: "1px solid #e5e5e5",
     width: "85%",
   },
@@ -77,13 +80,13 @@ const useStyles = theme => ({
     paddingBottom: "5px",
     boxSizing: " border-box",
     fontSize: "22px",
-    width: "100%"
+    width: "100%",
   },
   individualImageTopClose: {
     float: "right",
     width: "10%",
     size: "5px",
-    cursor: "pointer"
+    cursor: "pointer",
   },
   individualImageTopHeading: {
     width: "90%",
@@ -94,12 +97,12 @@ const useStyles = theme => ({
     textTransform: "inherit",
     fontWeight: "100",
     padding: "10px",
-    color: "#666666"
+    color: "#666666",
   },
   countItemButton: {
     display: "flex",
     flexDirection: "row",
-    marginTop: "20px"
+    marginTop: "20px",
   },
 
   countIncrementItem: {
@@ -113,7 +116,7 @@ const useStyles = theme => ({
     textAlign: "center",
     verticalAlign: " middle",
     borderRadius: "none",
-    padding: "0px"
+    padding: "0px",
   },
   countClicks: {
     margin: " 0 .9rem",
@@ -123,7 +126,7 @@ const useStyles = theme => ({
     fontSize: "15px",
     letterSpacing: ".04em",
     fontWeight: "400",
-    marginRight: "0px"
+    marginRight: "0px",
   },
   countDecreaseItem: {
     height: "50px",
@@ -137,9 +140,9 @@ const useStyles = theme => ({
     textAlign: "center",
     verticalAlign: " middle",
     borderRadius: "none",
-    border: " 1px solid #f2f2f2"
+    border: " 1px solid #f2f2f2",
   },
-  buttonBox:{
+  buttonBox: {
     color: "white",
     backgroundColor: "#333",
     height: "50px",
@@ -153,51 +156,52 @@ const useStyles = theme => ({
     "&:hover": {
       color: "#333",
       backgroundColor: "white",
-  }
-},
-description:{
-color: "#666666",
-fontFamily: "BentonSansLight,Helvetica,Arial,sans-serif",
-marginTop: "15px",
-borderTop: "1px solid #e5e5e5",
-paddingBottom:"10px",
-paddingTop:"10px",
-width: "85%",
-},
-descriptionTitle:{
-  paddingBottom: "10px",
-}
-
+    },
+  },
+  description: {
+    color: "#666666",
+    fontFamily: "BentonSansLight,Helvetica,Arial,sans-serif",
+    marginTop: "15px",
+    borderTop: "1px solid #e5e5e5",
+    paddingBottom: "10px",
+    paddingTop: "10px",
+    width: "85%",
+  },
+  descriptionTitle: {
+    paddingBottom: "10px",
+  },
 });
 
 class BodyCream extends React.Component {
-  state = {
+
+state = {
     urls: creamImage,
     selectedImage: {},
     clicks: 1,
-    show: true
+    show: true,
   };
 
   IncrementItem = () => {
     this.setState({ clicks: this.state.clicks + 1 });
   };
+
   DecreaseItem = () => {
     this.setState({
-      clicks: this.state.clicks > 1 ? this.state.clicks - 1 : this.state.clicks
+      clicks: this.state.clicks > 1 ? this.state.clicks - 1 : this.state.clicks,
     });
   };
 
   openModal(imageUrl) {
     this.setState({
       visible: true,
-      selectedImage: imageUrl
+      selectedImage: imageUrl,
     });
   }
 
   closeModal() {
     this.setState({
       visible: false,
-      selectedImage: {}
+      selectedImage: {},
     });
   }
 
@@ -223,29 +227,20 @@ class BodyCream extends React.Component {
     );
   }
 
+  // addToBag = () => {
+  //   this.props.dispatch(add_item(this.state.selectedImage));
+  // };
+
   render() {
     console.log(this.state.urls);
     const { classes } = this.props;
     return (
       <React.Fragment>
         <>
-          <div className="linkMain">
-            <div className="linkMainFirst">
-              <Link to="/">HOME</Link>
-              <Link to="/BodyCream">BODY CREAM</Link>
-              <Link to="/ShowerGel">SHOWER GEL</Link>
-              <Link to="/BodyMists">BODY MISTS</Link>
-            </div>
-            <div className="pageTitle">
-              <h1>
-                <span className="pageTitleBodyCream">Select Body Cream</span>
-              </h1>
-              <span className="pageTitleBodyCreamNumber">21 Items</span>
-            </div>
-            <div className="imagesMain">
-              <div className="imagesMainSecond">
-                {this.state.urls.map(img => this.renderImage(img))}
-              </div>
+          <PageHeader />
+         <div className="imagesMain">
+            <div className="imagesMainSecond">
+              {this.state.urls.map((img) => this.renderImage(img))}
             </div>
           </div>
           <Modal
@@ -304,13 +299,16 @@ class BodyCream extends React.Component {
                   </Button>
                 </div>
 
-                <Button variant="contained" className={classes.buttonBox}>
+                <Button
+                  // onClick={this.addToBag()}
+                  variant="contained"
+                  className={classes.buttonBox}
+                >
                   ADD TO BAG
                 </Button>
-                <div className={ classes.description}>
-                  <div className={ classes.descriptionTitle}>FRAGRANCE </div>
-                {this.state.selectedImage.description}
-                
+                <div className={classes.description}>
+                  <div className={classes.descriptionTitle}>FRAGRANCE </div>
+                  {this.state.selectedImage.description}
                 </div>
               </div>
             </div>

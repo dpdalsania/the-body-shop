@@ -1,10 +1,10 @@
 import React from "react";
 import "./Home.css";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
+// import Paper from "@material-ui/core/Paper";
+// import InputBase from "@material-ui/core/InputBase";
+// import IconButton from "@material-ui/core/IconButton";
+// import SearchIcon from "@material-ui/icons/Search";
 // import BackgroundImage from "../Image/BackgroundImage.jpg";
 
 const useStyles = makeStyles(theme => ({
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Playfair Display, serif",
     width: "60%",
     margin: "20px",
-    textAlign: "right"
+    textAlign: "right",
   },
   headerSearchWrapper: {
     margin: "5px",
@@ -54,8 +54,8 @@ export default function Header() {
     <>
       <div className={classes.headerWrapper}>
         <div className={classes.headerTextWrapper}>The Body Shop</div>
-        <div className={classes.headerSearchWrapper}>
-          <Paper component="form" className={classes.root}>
+        {/* <div className={classes.headerSearchWrapper}> */}
+          {/* <Paper component="form" className={classes.root}>
             <InputBase
               className={classes.input}
               placeholder="Search.."
@@ -68,8 +68,8 @@ export default function Header() {
             >
               <SearchIcon />
             </IconButton>
-          </Paper>
-        </div>
+          </Paper> */}
+        {/* </div> */}
       </div>
     </>
   );
