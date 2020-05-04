@@ -7,8 +7,9 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import CloseIcon from "@material-ui/icons/Close";
 import { add_item } from "../actions/shopping.actions";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+
 import PageHeader from "./PageHeader";
+import { connect } from "react-redux";
 
 const useStyles = (theme) => ({
   root: {
@@ -173,8 +174,7 @@ const useStyles = (theme) => ({
 });
 
 class BodyCream extends React.Component {
-
-state = {
+  state = {
     urls: creamImage,
     selectedImage: {},
     clicks: 1,
@@ -207,7 +207,7 @@ state = {
 
   renderImage(imageUrl) {
     const { classes } = this.props;
-
+    // const{cart} = this.props;
     return (
       <div className="individualImage">
         <img
@@ -220,25 +220,28 @@ state = {
         />
         <div className="imageText">{imageUrl.text} </div>
         <div className="imageTextPrice">{imageUrl.textPrice} </div>
-        <Button variant="contained" className={classes.button}>
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={() => this.addToBag(imageUrl)}
+        >
           ADD TO BAG
         </Button>
       </div>
     );
   }
-
-  // addToBag = () => {
-  //   this.props.dispatch(add_item(this.state.selectedImage));
-  // };
+  addToBag = (imageUrl) => {
+    this.props.dispatch(add_item(imageUrl));
+  };
 
   render() {
-    console.log(this.state.urls);
     const { classes } = this.props;
+  console.log("count items", this.props);
     return (
       <React.Fragment>
         <>
-          <PageHeader />
-         <div className="imagesMain">
+          <PageHeader count={this.props.count} />
+          <div className="imagesMain">
             <div className="imagesMainSecond">
               {this.state.urls.map((img) => this.renderImage(img))}
             </div>
@@ -303,6 +306,7 @@ state = {
                   // onClick={this.addToBag()}
                   variant="contained"
                   className={classes.buttonBox}
+                  onClick={() => this.addToBag(this.state.selectedImage)}
                 >
                   ADD TO BAG
                 </Button>
@@ -319,4 +323,11 @@ state = {
   }
 }
 
-export default withStyles(useStyles)(BodyCream);
+export const mapStateToProps = (state) => {
+  return {
+    cart: state.cart.cart,
+     count: state.cart.count,
+  };
+};
+
+export default connect(mapStateToProps)(withStyles(useStyles)(BodyCream));

@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./BodyCream.css";
-import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { connect } from "react-redux";
+import { get_Number } from "../actions/shopping.actions";
+import {Cart}from "./Cart";
+import Badge from "@material-ui/core/Badge";
+
+
 
 const useStyles = (theme) => ({
   root: {
@@ -22,7 +27,7 @@ const useStyles = (theme) => ({
     display: "flex",
     alignItems: "right",
     width: "220px",
-    border: "1.2px solid grey",
+    border: "0.2px solid grey",
     height: "40px",
   },
   input: {
@@ -51,14 +56,23 @@ const useStyles = (theme) => ({
     position: " absolute",
     right: "50px",
     textAlign: "center",
-    top: "16px",
-    width: "32px",
+    top: "15px",
+    width: "50px",
+  },
+
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
   },
 });
 
 class PageHeader extends React.Component {
   render() {
     const { classes } = this.props;
+    console.log("count final", this.props.count);
+
     return (
       <>
         <div className="linkMain">
@@ -86,9 +100,13 @@ class PageHeader extends React.Component {
                 <SearchIcon />
               </IconButton>
             </div>
+            <Link to="/Cart">
             <div className={classes.shoppingCart}>
-              <ShoppingCartOutlinedIcon style={{ fontSize: "30px" }} />
-            </div>
+              <Badge badgeContent={this.props.count} color="primary">
+               <ShoppingCartOutlinedIcon style={{ fontSize: "30px" }} 
+                />
+              </Badge>
+            </div></Link>
           </div>
           <div className="pageTitle">
             <h1>
@@ -102,4 +120,13 @@ class PageHeader extends React.Component {
   }
 }
 
-export default withStyles(useStyles)(PageHeader);
+export const mapStateToProps = (state) => {
+  return {
+    cart: state.cart.cart,
+    count: state.cart.count,
+  };
+};
+
+export default connect(mapStateToProps, { get_Number })(
+  withStyles(useStyles)(PageHeader)
+);

@@ -3,11 +3,12 @@ import "./Home.css";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-
+import {connect} from 'react-redux';
 // import Card from "@material-ui/core/Card";
 
 class Home extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <>
         <Header />
@@ -30,4 +31,11 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+
+export const mapStateToProps = state => {
+  return{
+    cart: state.cart,
+  }
+}
+
+export default connect(mapStateToProps)(Home);

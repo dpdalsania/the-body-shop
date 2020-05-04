@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import CloseIcon from "@material-ui/icons/Close";
 import PageHeader from "./PageHeader";
+import { add_item } from "../actions/shopping.actions";
+import { connect } from "react-redux";
 
 const useStyles = theme => ({
   root: {
@@ -209,12 +211,17 @@ class ShowerGel extends React.Component {
         height="500" />
         <div className="imageText">{imageUrl.text}</div>
         <div className="imageTextPrice">{imageUrl.textPrice} </div>
-        <Button variant="contained" className={classes.button} > 
+        <Button variant="contained" 
+        className={classes.button}
+        onClick={() => this.addToBag(imageUrl)} > 
           ADD TO BAG
         </Button>
       </div>
     );
   }
+  addToBag = (imageUrl) => {
+    this.props.dispatch(add_item(imageUrl));
+  };
   render() {
     console.log(this.state.urls);
     const { classes } = this.props;
@@ -283,7 +290,9 @@ class ShowerGel extends React.Component {
                   </Button>
                 </div>
 
-                <Button variant="contained" className={classes.buttonBox}>
+                <Button variant="contained" 
+                className={classes.buttonBox}
+                onClick={() => this.addToBag(this.state.selectedImage)}>
                   ADD TO BAG
                 </Button>
                 <div className={ classes.description}>
@@ -298,5 +307,11 @@ class ShowerGel extends React.Component {
     );
   }
 }
+export const mapStateToProps = (state) => {
+  return {
+    cart: state.cart.cart,
+     count: state.cart.count,
+  };
+};
 
-export default withStyles(useStyles)(ShowerGel);
+export default connect(mapStateToProps)(withStyles(useStyles)(ShowerGel));

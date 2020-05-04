@@ -5,10 +5,15 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 
+import { createStore,applyMiddleware  } from 'redux'
+
+
+
+const store = createStore(() => [], {}, applyMiddleware());
 ReactDOM.render(
-  // <Provider store={store}>
+   <Provider store={store}>
   <App />,
-  // </Provider>,
+  </Provider>,
   document.getElementById("root")
 );
 
