@@ -219,7 +219,7 @@ class BodyCream extends React.Component {
           height="500"
         />
         <div className="imageText">{imageUrl.text} </div>
-        <div className="imageTextPrice">{imageUrl.textPrice} </div>
+        <div className="imageTextPrice">${imageUrl.textPrice} </div>
         <Button
           variant="contained"
           className={classes.button}
@@ -285,10 +285,10 @@ class BodyCream extends React.Component {
                 <div className={classes.countItemButton}>
                   <Button
                     className={classes.countIncrementItem}
-                    onClick={this.IncrementItem}
+                    onClick={this.DecreaseItem}
                     // style={{ fontSize: "25px" }}
                   >
-                    +
+                    -
                   </Button>
                   <div className={classes.countClicks}>
                     {" "}
@@ -296,9 +296,9 @@ class BodyCream extends React.Component {
                   </div>
                   <Button
                     className={classes.countDecreaseItem}
-                    onClick={this.DecreaseItem}
+                    onClick={this.IncrementItem}
                   >
-                    -
+                    +
                   </Button>
                 </div>
 

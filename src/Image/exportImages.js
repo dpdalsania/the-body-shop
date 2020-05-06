@@ -22,9 +22,9 @@ import image21 from "../Image/bodycream29.jpg";
 
 // export default [image1, image2,image3,image4,image5,image6,image7,image8,image9,image10,image11,image12,image13,image14,image15,image16,image17,image18,image19,image20];
 export default [
-  { id:"1", text: "HONEY BUTTER", textPrice: "$14.50", url: image1,description: "Whipped body cream with antioxidant-rich honey and a triple-butter blend for intense moisture without a heavy or greasy after feel."},
+  { id:"1", text: "HONEY BUTTER", textPrice: 14.50, url: image1,description: "Whipped body cream with antioxidant-rich honey and a triple-butter blend for intense moisture without a heavy or greasy after feel."},
   { id:"2", text: "WARM & COZY", textPrice: "$15.50", url: image2,description:" Warm with Soft Vanilla, Passionfruit & Toasted Coconut" },
-  { id:"3", text: "ACURE", textPrice: "$14.50", url: image3 ,description:"Unscented with cocoa butter & colloidal oatmeal to protect & soothe."},
+  { id:"3", text: "ACURE", textPrice: 14.50, url: image3 ,description:"Unscented with cocoa butter & colloidal oatmeal to protect & soothe."},
   { id:"4", text: "MANGO & PAPAYA", textPrice: "$14.50", url: image4,description:"Olive oil,mango and papaya to protect & soothe." },
   { id:"5", text: "WARM & WOODY", textPrice: "$18.50", url: image5,description:"Warm with Woody with gittlers, Passionfruit & Toasted Coconut." },
   { id:"6", text: "COCONUT", textPrice: "$14.50", url: image6,description:"Nourshing Shimmer keeps your skin moisture, and you will love the energized glow." },
